@@ -1,0 +1,5 @@
+[run]
+omit = */*/tests/*,*/*/management.py,*/*/__main__.py
+
+[report]
+show_missing = True
