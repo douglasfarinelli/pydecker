@@ -48,7 +48,8 @@ def print_done() -> None:
 
 def print_message(message: str) -> None:
     click.echo(
-        click.style(' + ', fg='yellow') + message, err=True,
+        click.style(' + ', fg='yellow') + message,
+        err=True,
     )
 
 

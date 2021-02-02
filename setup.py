@@ -10,16 +10,16 @@ description = (
     "Simple development tool that simplifies a pythonist's daily tasks."
 )
 
-version = '0.2.0'
+version = '0.3.0'
 
 dependencies = [
     'autoflake',
-    'black',
+    'black>=20.8b1',
     'click',
     'colorama',
     'docformatter',
     'ipython',
-    'isort',
+    'isort>=5.6.4',
     'pdbpp',
     'ramos',
     'toml',

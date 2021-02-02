@@ -24,7 +24,7 @@ outdated:  ## Find outdated python dependencies
 	@pipenv update --bare --outdated
 
 lock:  ## Update Pipfile.lock
-	@pipenv lock
+	@pipenv lock --pre
 
 dependencies:  ## Install python dependencies
 	@pipenv sync --dev

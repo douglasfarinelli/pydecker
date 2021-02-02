@@ -60,7 +60,8 @@ def format_command(
     )
 
     run_format(
-        config, backends=backend,
+        config,
+        backends=backend,
     )
 
     print_done()

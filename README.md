@@ -107,16 +107,13 @@ black | skip-string-normalization | False | Skip string normalization to use uni
 unify | in-place | True | Apply changes
 unify | quote | "'" (Single quote) | 
 unify | recursive | True | Recursive to defined sources
-isort | apply | True | Apply changes
 isort | atomic | True | Ensures the output doesn't save if the resulting file contains syntax errors
 isort | case-sensitive | True | Tells isort to include casing when sorting module names
 isort | combine-as | True | Combines as imports on the same line
-isort | dont-skip | [`__init__`] | Files that sort imports should never skip over
 isort | line-length | 79 (from decker global line-length setting) | How many characters per line to allow
 isort | lines-after-imports | 2 | 
 isort | multi-line | 3 | Multi line output (0-grid, 1-vertical, 2-hanging, 3-vert-hanging, 4-vert-grid, 5-vert-grid-grouped, 6-vert-grid-grouped-no-comma).
 isort | order-by-type | True | Order imports by type in addition to alphabetically
-isort | recursive | True | Recursive to defined sources
 isort | remove-import | [`__future__`] | Removes the specified import from all files
 isort | skip-glob | `*venv*` | Files that sort imports should skip over
 isort | trailing-comma | True | Includes a trailing comma on multi line imports that include parentheses

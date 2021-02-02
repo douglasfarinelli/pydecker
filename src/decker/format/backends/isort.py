@@ -28,7 +28,6 @@ class IsortBackend(ThreadSafeCreateMixin, Formatter):
         extra = config.tools
         extra = extra.get('isort') or {}
         return {
-            '--apply': True,
             '--atomic': extra.get('atomic', True),
             '--balanced': extra.get('--balanced'),
             '--builtin': extra.get('known_standard_library', []),
@@ -39,7 +38,6 @@ class IsortBackend(ThreadSafeCreateMixin, Formatter):
             '--conda-env': extra.get('conda_env'),
             '--diff': extra.get('show_diff', False),
             '--dont-order-by-type': extra.get('dont_order_by_type'),
-            '--dont-skip': extra.get('not_skip', ['__init__']),
             '--filter-files': extra.get('filter_files'),
             '--force-adds': extra.get('force_adds'),
             '--force-alphabetical-sort': extra.get('force_alphabetical_sort'),
@@ -69,7 +67,6 @@ class IsortBackend(ThreadSafeCreateMixin, Formatter):
             '--order-by-type': extra.get('--order-by-type', True),
             '--project': extra.get('known_first_party'),
             '--quiet': False,
-            '--recursive': extra.get('recursive', True),
             '--remove-import': extra.get('remove_imports', ['__future__']),
             '--reverse-relative': extra.get('reverse_relative'),
             '--section-default': extra.get('default_section'),
