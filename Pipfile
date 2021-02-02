@@ -22,4 +22,4 @@ towncrier = "==19.2.0"
 unify = "==0.5"
 
 [requires]
-python_version = "3.8"
+python_version = "3.6"

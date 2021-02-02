@@ -1,7 +1,6 @@
 import os
-from dataclasses import dataclass
 from pathlib import Path
-from typing import IO, Any, Dict, Iterable, Optional, Union
+from typing import IO, Any, Dict, Iterable, NamedTuple, Optional, Union
 
 import click
 import toml
@@ -10,8 +9,7 @@ from click import Context
 from decker.utils import indent_output
 
 
-@dataclass(frozen=True)
-class Config:
+class Config(NamedTuple):
     ctx: Context
     pyproject: 'PyProjectConfig'
     line_length: int
@@ -20,12 +18,12 @@ class Config:
     verbose: bool = False
 
     @property
-    def decker(self) -> 'PyProjectConfig':
-        return self.tools.get('decker') or PyProjectConfig()
-
-    @property
     def tools(self) -> 'PyProjectConfig':
         return self.pyproject.get('tool') or PyProjectConfig()
+
+    @property
+    def decker(self) -> 'PyProjectConfig':
+        return self.tools.get('decker') or PyProjectConfig()
 
     @classmethod
     def create(
@@ -44,7 +42,7 @@ class Config:
             if os.path.exists('src'):
                 sources.append('src/')
 
-        return cls(
+        return Config(
             ctx=ctx,
             exclude=exclude or decker.get('exclude'),
             line_length=decker.get('line_length', line_length),
@@ -102,7 +100,7 @@ class PyProjectConfig:
 
         with open(filename, 'r') as file:
             try:
-                return PyProjectConfig.from_dict(toml.load(file))
+                return PyProjectConfig.from_dict(toml.load(file))  # NOQA
             except toml.TomlDecodeError as e:
                 cls.print_invalidation(file, error=e)
                 raise SystemExit()

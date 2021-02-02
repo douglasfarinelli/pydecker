@@ -33,7 +33,7 @@ class BlackBackend(ThreadSafeCreateMixin, Formatter):
             fast=extra.get('fast', False),
             include=extra.get('include') or '',
             line_length=extra.get('line_length', config.line_length),
-            py36=extra.get('py36', False),
+            py36=None,
             pyi=extra.get('pyi', False),
             quiet=extra.get('quiet', False),
             skip_string_normalization=True,
